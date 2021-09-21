@@ -1,5 +1,11 @@
+import styled from "styled-components";
+
 function Home() {
-  return <div className="section-cardlist">Home</div>;
+  return <HomeBox>Home</HomeBox>;
 }
 
 export default Home;
+
+const HomeBox = styled.div`
+  text-align: center;
+`;
