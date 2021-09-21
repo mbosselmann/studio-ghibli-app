@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "header-font";
+  src: url("./components/fonts/GrechenFuemen-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("./components/fonts/Montserrat/Montserrat-Regular.ttf")
+    format("truetype");
+}
