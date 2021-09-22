@@ -50,8 +50,7 @@ function Cardlist(props) {
 export default Cardlist;
 
 const FilmCardBox = styled.div`
-  width: 340px;
-  height: 250px;
+  width: 300px;
   margin: 5px;
 `;
 
@@ -62,10 +61,12 @@ const SectionFilmCard = styled.div`
   border-radius: 5px 5px 0 0;
   display: flex;
   flex-direction: column;
+  height: 220px;
 `;
 
 const FilmTitle = styled.div`
   padding: 10px;
+  height: 90px;
   -webkit-box-shadow: 0px 5px 15px -10px #7a638d;
   box-shadow: 0px 5px 15px -10px #7a638d;
 `;
@@ -74,7 +75,7 @@ const FilmOverview = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   height: 120px;
 `;
 
@@ -115,7 +116,7 @@ const ShowMoreDButton = styled.button`
 const ShowMore = styled.div`
   text-align: center;
   height: 50px;
-  padding-top: 7px;
+  padding-top: 8px;
   background-color: RGBA(255, 255, 255, 0.62);
   border-radius: 0 0 5px 5px;
 `;
