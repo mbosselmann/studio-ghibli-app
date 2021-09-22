@@ -10,23 +10,10 @@ import "./fonts.css";
 
 function App({ data }) {
   const dataFilms = data.films;
-  console.table(dataFilms);
   return (
     <AppBox>
       <StyledHeader>
-        <Route
-          exact
-          path={[
-            "/",
-            "/home",
-            "/films",
-            "/films/:id",
-            "/characters",
-            "/locations",
-          ]}
-        >
-          <Header />
-        </Route>
+        <Header />
       </StyledHeader>
       <Main>
         <Switch>
