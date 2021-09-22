@@ -58,12 +58,12 @@ const AppTitle = styled.h1`
   }
 
   @media only screen and (min-width: 650px) {
-    margin: 31px auto;
+    margin: 30px auto;
     font-size: 2rem;
   }
 
   @media only screen and (min-width: 800px) {
-    margin: 26px auto;
+    margin: 25px auto;
     font-size: 2.5rem;
   }
 `;
@@ -79,7 +79,7 @@ const NavBar = styled.div`
   align-items: center;
   width: 100%;
   box-shadow: 0px 10px 16px 0 #4b587880;
-  border: 5px solid transparent;
+  border: 5px solid #f2f2f2;
 `;
 
 const NavBarLink = styled(NavLink)`
@@ -91,7 +91,7 @@ const NavBarLink = styled(NavLink)`
   width: 25%;
   font-size: 0.8rem;
   background-color: #fff;
-  border: 1px double #f2f2f2;
+  border: 1px double #fff;
 
   &:hover {
     background-color: #7a638d;
