@@ -1,9 +1,12 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-const Singlecard = (props) => {
+const Singlecard = ({ data }) => {
   const { id } = useParams();
-  const film = props.data.filter((x) => x.id === id)[0];
+  const film = data.filter((film) => film.id === id)[0];
+  console.log(film);
   return (
     <SingleCardBox>
       <ActionContainer>

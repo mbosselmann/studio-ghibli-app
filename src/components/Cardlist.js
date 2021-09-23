@@ -1,6 +1,5 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Cardlist(props) {
   return (
@@ -47,7 +46,7 @@ function Cardlist(props) {
 
 export default Cardlist;
 
-const FilmCardBox = styled.div`
+const FilmCardBox = styled.article`
   width: 300px;
   margin: 5px;
 `;

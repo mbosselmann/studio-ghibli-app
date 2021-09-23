@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-function Header() {
+function Header({ onSetResourceType }) {
   return (
     <HeaderSection>
       <AppTitle>Studio Ghibli Film Collection Database</AppTitle>
@@ -10,13 +10,25 @@ function Header() {
           <NavBarLink to="/home" activeClassName="is-active">
             Home
           </NavBarLink>
-          <NavBarLink to="/films" activeClassName="is-active">
+          <NavBarLink
+            to="/films"
+            activeClassName="is-active"
+            onClick={() => onSetResourceType("films")}
+          >
             Films
           </NavBarLink>
-          <NavBarLink to="/characters" activeClassName="is-active">
+          <NavBarLink
+            to="/characters"
+            activeClassName="is-active"
+            onClick={() => onSetResourceType("people")}
+          >
             Characters
           </NavBarLink>
-          <NavBarLink to="/locations" activeClassName="is-active">
+          <NavBarLink
+            to="/locations"
+            activeClassName="is-active"
+            onClick={() => onSetResourceType("locations")}
+          >
             Locations
           </NavBarLink>
         </NavBar>
