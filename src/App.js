@@ -2,18 +2,32 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Cardlist from "./components/Cardlist";
-import Favourites from "./components/Favourites";
 import Singlecard from "./components/Singlecard";
+import Characters from "./components/Characters";
+import Locations from "./components/Locations";
 import styled from "styled-components";
 import img from "./images/ged025.jpeg";
 import "./fonts.css";
+import { useEffect, useState } from "react";
 
 function App({ data }) {
-  const dataFilms = data.films;
+  const [resourceType, setResourceType] = useState("");
+  const [dataFilms, setDataFilms] = useState([]);
+  useEffect(() => {
+    fetch(`https://ghibliapi.herokuapp.com/${resourceType}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setDataFilms(data);
+      });
+  }, [resourceType]);
+  console.log(dataFilms);
   return (
     <AppBox>
       <StyledHeader>
-        <Header />
+        <Header
+          resourceType={resourceType}
+          onSetResourceType={setResourceType}
+        />
       </StyledHeader>
       <Main>
         <Switch>
@@ -36,10 +50,21 @@ function App({ data }) {
             ))}
           </Route>
           <Route exact path="/characters">
-            <Favourites />
+            {dataFilms.map((person) => (
+              <Characters
+                id={person.id}
+                name={person.name}
+                gender={person.gender}
+                age={person.age}
+                eyeColor={person.eye_color}
+                hairColor={person.hair_color}
+              />
+            ))}
           </Route>
           <Route exact path="/locations">
-            <Favourites />
+            {dataFilms.map((location) => (
+              <Locations />
+            ))}
           </Route>
           <Route path="/films/:id">
             <Singlecard data={dataFilms} />
