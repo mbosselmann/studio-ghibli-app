@@ -7,29 +7,29 @@ function Cardlist(props) {
     <FilmCardBox>
       <SectionFilmCard>
         <FilmTitle>
-          <P>
-            <Strong>Film Title:</Strong> {props.title}
-          </P>
-          <P>
-            <Strong>Original Film Title:</Strong> {props.originalTitle}
-          </P>
-          <P>({props.originalTitleRomanised})</P>
+          <p>
+            <strong>Film Title:</strong> {props.title}
+          </p>
+          <p>
+            <strong>Original Film Title:</strong> {props.originalTitle}
+          </p>
+          <p>({props.originalTitleRomanised})</p>
         </FilmTitle>
         <FilmOverview>
           <OverviewList>
             <li>
-              <Strong>Director:</Strong> {props.director}
+              <strong>Director:</strong> {props.director}
             </li>
             <li>
-              <Strong>Producer:</Strong>
+              <strong>Producer:</strong>
               {props.producer}
             </li>
             <li>
-              <Strong>Release Date:</Strong>
+              <strong>Release Date:</strong>
               {props.date}
             </li>
             <li>
-              <Strong>Running Time:</Strong>
+              <strong>Running Time:</strong>
               {props.runningTime} mins
             </li>
           </OverviewList>
@@ -39,9 +39,7 @@ function Cardlist(props) {
         </FilmOverview>
       </SectionFilmCard>
       <ShowMore>
-        <Link to={`/films/${props.id}`}>
-          <ShowMoreDButton>More</ShowMoreDButton>
-        </Link>
+        <ShowMoreButton to={`/films/${props.id}`}>More &#10140;</ShowMoreButton>
       </ShowMore>
     </FilmCardBox>
   );
@@ -84,15 +82,6 @@ const OverviewList = styled.ul`
   list-style-type: none;
   display: flex;
   flex-direction: column;
-`;
-
-const Strong = styled.strong`
-  font-size: 0.8rem;
-  margin-right: 5px;
-`;
-
-const P = styled.p`
-  font-size: 0.9rem;
 `;
 
 const FilmEmoji = styled.div`
