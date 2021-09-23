@@ -87,24 +87,38 @@ const FilmEmoji = styled.div`
   padding-right: 3px;
 `;
 
-const ShowMoreDButton = styled.button`
-  padding: 10px;
-  border: none;
-  width: 50%;
-  border-radius: 5px;
-  background-color: #7a638d;
+const ShowMoreButton = styled(NavLink)`
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
   color: #fff;
-  box-shadow: 0px 5px 16px 0 #4b587880;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 10px 0 10px 0;
+  padding-top: 8px;
+  width: 40%;
+  height: 30px;
+  font-size: 0.7rem;
+  background-color: #7a638d;
+  border-radius: 5px;
+  box-shadow: 0px 10px 16px 0 #4b587880;
 
   &:hover {
     background-color: #4b5878;
+    color: #fff;
+  }
+
+  &.${(props) => props.activeClassName} {
+    background-color: #4b5878;
+    color: #fff;
   }
 `;
 
 const ShowMore = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   height: 50px;
-  padding-top: 8px;
   background-color: RGBA(255, 255, 255, 0.62);
   border-radius: 0 0 5px 5px;
 `;
