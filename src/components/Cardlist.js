@@ -1,35 +1,35 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import arrowForward from "../images/arrow-forward.png";
 
 function Cardlist(props) {
   return (
     <FilmCardBox>
       <SectionFilmCard>
         <FilmTitle>
-          <P>
-            <Strong>Film Title:</Strong> {props.title}
-          </P>
-          <P>
-            <Strong>Original Film Title:</Strong> {props.originalTitle}
-          </P>
-          <P>({props.originalTitleRomanised})</P>
+          <p>
+            <strong>Film Title:</strong> {props.title}
+          </p>
+          <p>
+            <strong>Original Film Title:</strong> {props.originalTitle}
+          </p>
+          <p>({props.originalTitleRomanised})</p>
         </FilmTitle>
         <FilmOverview>
           <OverviewList>
             <li>
-              <Strong>Director:</Strong> {props.director}
+              <strong>Director:</strong> {props.director}
             </li>
             <li>
-              <Strong>Producer:</Strong>
+              <strong>Producer:</strong>
               {props.producer}
             </li>
             <li>
-              <Strong>Release Date:</Strong>
+              <strong>Release Date:</strong>
               {props.date}
             </li>
             <li>
-              <Strong>Running Time:</Strong>
+              <strong>Running Time:</strong>
               {props.runningTime} mins
             </li>
           </OverviewList>
@@ -39,9 +39,9 @@ function Cardlist(props) {
         </FilmOverview>
       </SectionFilmCard>
       <ShowMore>
-        <Link to={`/films/${props.id}`}>
-          <ShowMoreDButton>More</ShowMoreDButton>
-        </Link>
+        <ShowMoreButton to={`/films/${props.id}`}>
+          More <Img src={arrowForward} />
+        </ShowMoreButton>
       </ShowMore>
     </FilmCardBox>
   );
@@ -49,9 +49,8 @@ function Cardlist(props) {
 
 export default Cardlist;
 
-const FilmCardBox = styled.div`
-  width: 340px;
-  height: 250px;
+const FilmCardBox = styled.article`
+  width: 300px;
   margin: 5px;
 `;
 
@@ -62,10 +61,12 @@ const SectionFilmCard = styled.div`
   border-radius: 5px 5px 0 0;
   display: flex;
   flex-direction: column;
+  height: 220px;
 `;
 
 const FilmTitle = styled.div`
   padding: 10px;
+  height: 90px;
   -webkit-box-shadow: 0px 5px 15px -10px #7a638d;
   box-shadow: 0px 5px 15px -10px #7a638d;
 `;
@@ -74,7 +75,7 @@ const FilmOverview = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   height: 120px;
 `;
 
@@ -85,37 +86,49 @@ const OverviewList = styled.ul`
   flex-direction: column;
 `;
 
-const Strong = styled.strong`
-  font-size: 0.8rem;
-  margin-right: 5px;
-`;
-
-const P = styled.p`
-  font-size: 0.9rem;
-`;
-
 const FilmEmoji = styled.div`
   padding-right: 3px;
 `;
 
-const ShowMoreDButton = styled.button`
-  padding: 10px;
-  border: none;
-  width: 50%;
-  border-radius: 5px;
-  background-color: #7a638d;
+const ShowMoreButton = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 20px 5px 20px;
+  margin: 12px 0 10px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 40%;
   color: #fff;
-  box-shadow: 0px 5px 16px 0 #4b587880;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  background-color: #7a638d;
+  border-radius: 5px;
+  box-shadow: 0px 10px 16px 0 #4b587880;
 
   &:hover {
     background-color: #4b5878;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  &.${(props) => props.activeClassName} {
+    background-color: #4b5878;
+    color: #fff;
   }
 `;
 
 const ShowMore = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   height: 50px;
-  padding-top: 7px;
   background-color: RGBA(255, 255, 255, 0.62);
   border-radius: 0 0 5px 5px;
+`;
+
+const Img = styled.img`
+  margin-left: 5px;
+  width: 15px;
 `;
