@@ -6,17 +6,17 @@ function Cardlist(props) {
   return (
     <FilmCardBox>
       <SectionFilmCard>
-        <FilmTitle>
-          <p>
+        <FilmTitle aria-label="film-title">
+          <li>
             <strong>Film Title:</strong> {props.title}
-          </p>
-          <p>
+          </li>
+          <li>
             <strong>Original Film Title:</strong> {props.originalTitle}
-          </p>
-          <p>({props.originalTitleRomanised})</p>
+          </li>
+          <li>({props.originalTitleRomanised})</li>
         </FilmTitle>
         <FilmOverview>
-          <OverviewList>
+          <OverviewList aria-label="film-content">
             <li>
               <strong>Director:</strong> {props.director}
             </li>
@@ -33,7 +33,7 @@ function Cardlist(props) {
               {props.runningTime} mins
             </li>
           </OverviewList>
-          <FilmEmoji>
+          <FilmEmoji role="emoji">
             <p>🎬</p>
           </FilmEmoji>
         </FilmOverview>
@@ -64,7 +64,10 @@ const SectionFilmCard = styled.div`
   height: 220px;
 `;
 
-const FilmTitle = styled.div`
+const FilmTitle = styled.ul`
+  list-style-type: none;
+  font-size: 0.9rem;
+
   padding: 10px;
   height: 90px;
   -webkit-box-shadow: 0px 5px 15px -10px #7a638d;
