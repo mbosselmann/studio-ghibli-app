@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import arrowForward from "../images/arrow-forward.png";
 
 function Cardlist(props) {
   return (
@@ -38,7 +39,9 @@ function Cardlist(props) {
         </FilmOverview>
       </SectionFilmCard>
       <ShowMore>
-        <ShowMoreButton to={`/films/${props.id}`}>More &#10140;</ShowMoreButton>
+        <ShowMoreButton to={`/films/${props.id}`}>
+          More <Img src={arrowForward} />
+        </ShowMoreButton>
       </ShowMore>
     </FilmCardBox>
   );
@@ -88,16 +91,17 @@ const FilmEmoji = styled.div`
 `;
 
 const ShowMoreButton = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 20px 5px 20px;
+  margin: 12px 0 10px 0;
   text-decoration: none;
   text-transform: uppercase;
-  text-align: center;
+  width: 40%;
   color: #fff;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  margin: 10px 0 10px 0;
-  padding-top: 8px;
-  width: 40%;
-  height: 30px;
   font-size: 0.7rem;
   background-color: #7a638d;
   border-radius: 5px;
@@ -106,6 +110,7 @@ const ShowMoreButton = styled(NavLink)`
   &:hover {
     background-color: #4b5878;
     color: #fff;
+    cursor: pointer;
   }
 
   &.${(props) => props.activeClassName} {
@@ -121,4 +126,9 @@ const ShowMore = styled.div`
   height: 50px;
   background-color: RGBA(255, 255, 255, 0.62);
   border-radius: 0 0 5px 5px;
+`;
+
+const Img = styled.img`
+  margin-left: 5px;
+  width: 15px;
 `;
